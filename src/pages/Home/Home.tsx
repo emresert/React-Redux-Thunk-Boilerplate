@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useTranslation } from "react-i18next";
 import { useAppSelector } from '../../store';
 import { useDispatch } from 'react-redux';
-import { getUsers } from '../../store/features/ui/uiSlice';
+import { getUsers, setIsAuth } from '../../store/features/ui/uiSlice';
 
 
 
@@ -13,7 +13,7 @@ const App: React.FC = () => {
   const { t, i18n } = useTranslation();
   const dispatch = useDispatch();
 
-  
+
   useEffect(() => {
     dispatch(getUsers());
   }, [])
@@ -21,16 +21,31 @@ const App: React.FC = () => {
 
   return (
     <div className="app-container">
-     
+
+      <div>
         {
-          ui.users.map((uItem:any)=>{
-            return(
-              <div>
-                 {uItem.name}
-              </div>
-            )
-          })
+          ui.isAuth === true ? "isAuth = true" : "isAuth = false"
         }
+      </div>
+
+      <br />
+
+
+      {
+        ui.users.map((uItem: any) => {
+          return (
+            <div>
+              {uItem.name}
+            </div>
+          )
+        })
+      }
+
+
+      <br />
+      <button onClick={() => {
+        dispatch(setIsAuth(false))
+      }}>Çıkış</button>
 
     </div>
   );
