@@ -2,6 +2,7 @@ import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
 import "./i18n"
 import "./assets/styles/index.scss";
+import 'react-toastify/dist/ReactToastify.css';
 import reportWebVitals from './reportWebVitals';
 import { ToastContainer } from 'react-toastify';
 import { Provider } from 'react-redux';
