@@ -1,0 +1,12 @@
+version: "3.8"
+services:
+  web:
+    container_name: reactContainerForRedux
+    build: .
+    ports:
+      - 3000:80
+ 
+        
+  #docker-compose up -d
+  #mappings file should be same line to avoid  mapping error
+  #docker-compose down
